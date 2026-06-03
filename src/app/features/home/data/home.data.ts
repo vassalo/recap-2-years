@@ -98,7 +98,7 @@ export const SEASON_TRIPS: SeasonTrip[] = [
     locationLabel: 'Viagem 01',
     description: 'Sol, mar e mais uma memória bonita para guardar da gente.',
     image: 'images/trips/trip_01.jpg',
-    tag: 'praia',
+    tag: 'resort',
   },
   {
     title: 'Japaratinga',
@@ -106,7 +106,7 @@ export const SEASON_TRIPS: SeasonTrip[] = [
     description:
       'Um daqueles lugares que parecem ter sido feitos para virar lembrança.',
     image: 'images/trips/trip_02.jpg',
-    tag: 'mar',
+    tag: 'praia',
   },
   {
     title: 'Brasília',
