@@ -28,38 +28,51 @@ npm run build
 O output fica em:
 
 ```text
-dist/nossa-temporada/browser/
+docs/
 ```
 
-> **Nota:** em versões recentes do Angular, o build de aplicações gera a pasta `browser` dentro de `dist/<nome-do-projeto>/`. O workflow do GitHub Actions já aponta para esse caminho.
+> **Nota:** a configuração `pages` no `angular.json` gera os arquivos diretamente em `docs/`, separados do código-fonte.
 
 ## GitHub Pages — configurar `base-href`
 
-Quando o repositório no GitHub estiver criado, substitua `REPO_NAME` pelo nome exato do repositório (ex.: `recap-2-years`).
-
-### 1. Script `build:gh-pages` no `package.json`
+O script `build` já usa o base-href correto para o repositório:
 
 ```json
-"build:gh-pages": "ng build --configuration production --base-href /REPO_NAME/"
+"build": "ng build --configuration pages --base-href /recap-2-years/"
 ```
 
-Exemplo:
+Se o nome do repositório mudar, atualize `/recap-2-years/` no `package.json`.
 
-```json
-"build:gh-pages": "ng build --configuration production --base-href /recap-2-years/"
+### 1. Teste local do build
+
+Para simular a estrutura do repositório com `npx serve .`:
+
+```bash
+npm run build:local
+npx serve .
 ```
+
+Abra [http://localhost:3000/docs/](http://localhost:3000/docs/).
 
 ### 2. Workflow `.github/workflows/deploy.yml`
 
-O caminho do artifact já está configurado como:
+O caminho do artifact está configurado como:
 
 ```yaml
-path: dist/nossa-temporada/browser
+path: docs
 ```
 
-Se você renomear o projeto no `angular.json`, atualize esse caminho também.
-
 ### 3. Configuração no GitHub
+
+**Opção A — Deploy from branch (manual):**
+
+1. Rode `npm run build`
+2. Commit e push da pasta `docs/`
+3. Vá em **Settings → Pages**
+4. Em **Build and deployment**, selecione **Deploy from a branch**
+5. Branch `main` (ou a branch principal) e pasta **`/docs`**
+
+**Opção B — GitHub Actions (automático):**
 
 1. Vá em **Settings → Pages**
 2. Em **Build and deployment**, selecione **GitHub Actions**
@@ -68,18 +81,18 @@ Se você renomear o projeto no `angular.json`, atualize esse caminho também.
 URL final esperada:
 
 ```text
-https://<seu-usuario>.github.io/REPO_NAME/
+https://<seu-usuario>.github.io/recap-2-years/
 ```
 
 ## Scripts disponíveis
 
-| Script            | Descrição                                      |
-| ----------------- | ---------------------------------------------- |
-| `npm start`       | Servidor de desenvolvimento                    |
-| `npm run build`   | Build de produção (base-href `/`)              |
-| `npm run build:gh-pages` | Build com base-href para GitHub Pages   |
-| `npm run watch`   | Build em modo watch (development)              |
-| `npm test`        | Testes unitários                               |
+| Script              | Descrição                                              |
+| ------------------- | ------------------------------------------------------ |
+| `npm start`         | Servidor de desenvolvimento                            |
+| `npm run build`     | Build de produção em `docs/` (base-href `/recap-2-years/`) |
+| `npm run build:local` | Build para teste local com `npx serve .` (base-href `/docs/`) |
+| `npm run watch`     | Build em modo watch (development)                      |
+| `npm test`          | Testes unitários                                       |
 
 ## Onde colocar imagens
 

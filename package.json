@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production --base-href /gh-pages/",
-    "build:gh-pages": "ng build --configuration production --base-href /REPO_NAME/",
+    "build": "ng build --configuration pages --base-href /recap-2-years/",
+    "build:local": "ng build --configuration pages --base-href /docs/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
