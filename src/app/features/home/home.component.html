@@ -1,0 +1,49 @@
+<section class="home">
+  <div class="home__opening">
+    <p class="home__eyebrow home__anim home__anim--badge">{{ homeData.badge }}</p>
+
+    <h1 class="home__title home__anim home__anim--title">{{ homeData.title }}</h1>
+
+    <p class="home__subtitle home__anim home__anim--subtitle">
+      {{ homeData.subtitle }}
+    </p>
+
+    <p class="home__opening-text home__anim home__anim--text">
+      {{ homeData.openingText }}
+    </p>
+
+    <p class="home__tagline home__anim home__anim--tagline">
+      <span class="home__tagline-line" aria-hidden="true"></span>
+      {{ homeData.tagline }}
+      <span class="home__tagline-line" aria-hidden="true"></span>
+    </p>
+
+    <div class="home__cta home__anim home__anim--button">
+      <app-button
+        [label]="homeData.ctaLabel"
+        (clicked)="scrollToSeasonPreview()"
+      />
+    </div>
+
+    <article class="home__preview-card home__anim home__anim--preview">
+      <h2 class="home__preview-title">{{ homeData.preview.title }}</h2>
+      <ul class="home__preview-list">
+        @for (item of homeData.preview.items; track item) {
+          <li class="home__preview-item">
+            <span class="home__preview-marker" aria-hidden="true"></span>
+            <span>{{ item }}</span>
+          </li>
+        }
+      </ul>
+    </article>
+
+    <p class="home__nfc-note home__anim home__anim--nfc">
+      <span class="home__nfc-icon" aria-hidden="true">✦</span>
+      {{ homeData.nfcNote }}
+    </p>
+  </div>
+
+  <app-season-scoreboard [sectionId]="homeData.scoreboardScrollId" />
+
+  <app-travel-section />
+</section>

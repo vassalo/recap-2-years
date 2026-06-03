@@ -1,0 +1,36 @@
+<section
+  class="season-scoreboard"
+  [attr.id]="sectionId()"
+  aria-labelledby="season-scoreboard-title"
+>
+  <header class="season-scoreboard__header">
+    <p class="season-scoreboard__badge">{{ scoreboard.badge }}</p>
+    <h2 class="season-scoreboard__title" id="season-scoreboard-title">
+      {{ scoreboard.title }}
+    </h2>
+    <p class="season-scoreboard__subtitle">{{ scoreboard.subtitle }}</p>
+  </header>
+
+  <div class="season-scoreboard__grid">
+    @for (stat of stats; track stat.label; let i = $index) {
+      <app-stat-card
+        [value]="stat.value"
+        [label]="stat.label"
+        [description]="stat.description"
+        [accent]="stat.accent ?? 'gold'"
+        [featured]="stat.featured"
+        [animationIndex]="i"
+      />
+    }
+  </div>
+
+  <blockquote class="season-scoreboard__closing">
+    <p class="season-scoreboard__closing-text">
+      {{ scoreboard.closing.before
+      }}<span class="season-scoreboard__closing-highlight">{{
+        scoreboard.closing.highlight
+      }}</span
+      >{{ scoreboard.closing.after }}
+    </p>
+  </blockquote>
+</section>

@@ -1,0 +1,15 @@
+<section
+  class="section-container"
+  [class.section-container--subtle]="subtle()"
+  [attr.id]="sectionId() || null"
+>
+  @if (title()) {
+    <header class="section-container__header">
+      <h2 class="section-container__title">{{ title() }}</h2>
+    </header>
+  }
+
+  <div class="section-container__content">
+    <ng-content />
+  </div>
+</section>

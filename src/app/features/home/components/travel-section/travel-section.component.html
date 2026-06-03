@@ -1,0 +1,68 @@
+3 <section
+  class="travel-section"
+  [attr.id]="sectionId()"
+  aria-labelledby="travel-section-title"
+>
+  <header class="travel-section__header">
+    <p class="travel-section__badge">{{ travelSection.badge }}</p>
+    <h2 class="travel-section__title" id="travel-section-title">
+      {{ travelSection.title }}
+    </h2>
+    <p class="travel-section__subtitle">{{ travelSection.subtitle }}</p>
+    <p class="travel-section__intro">{{ travelSection.intro }}</p>
+  </header>
+
+  <div class="travel-section__divider" aria-hidden="true">
+    <span class="travel-section__route-dot"></span>
+    <span class="travel-section__route-line"></span>
+    <span class="travel-section__route-dot"></span>
+    <span class="travel-section__route-line"></span>
+    <span class="travel-section__route-dot"></span>
+  </div>
+
+  <div class="travel-section__grid">
+    @for (trip of trips; track trip.title; let i = $index) {
+      <article
+        class="travel-card"
+        [style.--travel-anim-delay]="i * 90 + 'ms'"
+      >
+        <div class="travel-card__media">
+          @if (!hasImageError(trip.title)) {
+            <img
+              class="travel-card__image"
+              [src]="trip.image"
+              [alt]="getImageAlt(trip.title)"
+              loading="lazy"
+              (error)="onImageError(trip.title)"
+            />
+          }
+
+          <div
+            class="travel-card__fallback"
+            [class.travel-card__fallback--visible]="hasImageError(trip.title)"
+            aria-hidden="true"
+          >
+            <span class="travel-card__fallback-title">{{ trip.title }}</span>
+          </div>
+
+          @if (trip.tag) {
+            <span class="travel-card__tag">{{ trip.tag }}</span>
+          }
+        </div>
+
+        <div class="travel-card__body">
+          @if (trip.locationLabel) {
+            <p class="travel-card__label">{{ trip.locationLabel }}</p>
+          }
+
+          <h3 class="travel-card__title">{{ trip.title }}</h3>
+          <p class="travel-card__description">{{ trip.description }}</p>
+        </div>
+      </article>
+    }
+  </div>
+
+  <blockquote class="travel-section__closing">
+    <p class="travel-section__closing-text">{{ travelSection.closing }}</p>
+  </blockquote>
+</section>
