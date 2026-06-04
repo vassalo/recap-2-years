@@ -4,6 +4,7 @@ import { AppButtonComponent } from '../../shared/components/app-button/app-butto
 import { ScreenSectionComponent } from './components/screen-section/screen-section.component';
 import { SeasonScoreboardComponent } from './components/season-scoreboard/season-scoreboard.component';
 import { TravelSectionComponent } from './components/travel-section/travel-section.component';
+import { VolleyballSectionComponent } from './components/volleyball-section/volleyball-section.component';
 import { HOME_DATA } from './data/home.data';
 
 @Component({
@@ -13,6 +14,7 @@ import { HOME_DATA } from './data/home.data';
     SeasonScoreboardComponent,
     TravelSectionComponent,
     ScreenSectionComponent,
+    VolleyballSectionComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

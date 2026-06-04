@@ -1,0 +1,91 @@
+<section
+  class="volleyball-section"
+  [attr.id]="sectionId()"
+  aria-labelledby="volleyball-section-title"
+>
+  <header class="volleyball-section__header">
+    <p class="volleyball-section__badge">{{ volleyballSection.badge }}</p>
+    <h2 class="volleyball-section__title" id="volleyball-section-title">
+      {{ volleyballSection.title }}
+    </h2>
+    <p class="volleyball-section__subtitle">{{ volleyballSection.subtitle }}</p>
+    <p class="volleyball-section__intro">{{ volleyballSection.intro }}</p>
+  </header>
+
+  <ol class="volleyball-timeline">
+    @for (moment of moments; track moment.type; let i = $index) {
+      <li
+        class="volleyball-timeline__item"
+        [style.--volley-anim-delay]="i * 100 + 'ms'"
+      >
+        <span class="volleyball-timeline__marker" aria-hidden="true"></span>
+
+        <article
+          class="volleyball-card"
+          [class.volleyball-card--home]="moment.type === 'home'"
+          [class.volleyball-card--beach]="moment.type === 'beach'"
+          [class.volleyball-card--trip]="moment.type === 'trip'"
+          [class.volleyball-card--featured]="moment.featured"
+        >
+          @if (moment.featured) {
+            <span class="volleyball-card__seal">fechamento da temporada</span>
+          }
+
+          <div class="volleyball-card__head">
+            <p class="volleyball-card__amount">{{ moment.amount }}</p>
+            @if (moment.location) {
+              <span class="volleyball-card__location">{{ moment.location }}</span>
+            }
+          </div>
+
+          <h3 class="volleyball-card__title">{{ moment.title }}</h3>
+          <p class="volleyball-card__description">{{ moment.description }}</p>
+
+          @if (moment.image) {
+            <figure class="volleyball-card__figure">
+              <div class="volleyball-card__frame">
+                @if (!hasImageError(moment.type)) {
+                  <img
+                    class="volleyball-card__image"
+                    [src]="moment.image"
+                    [alt]="moment.imageAlt ?? moment.title"
+                    loading="lazy"
+                    (error)="onImageError(moment.type)"
+                  />
+                }
+
+                <div
+                  class="volleyball-card__fallback"
+                  [class.volleyball-card__fallback--visible]="
+                    hasImageError(moment.type)
+                  "
+                  aria-hidden="true"
+                >
+                  <span class="volleyball-card__fallback-dot"></span>
+                  <span class="volleyball-card__fallback-title">{{
+                    moment.title
+                  }}</span>
+                  @if (moment.location) {
+                    <span class="volleyball-card__fallback-location">{{
+                      moment.location
+                    }}</span>
+                  }
+                </div>
+              </div>
+            </figure>
+          }
+        </article>
+      </li>
+    }
+  </ol>
+
+  <blockquote class="volleyball-section__closing">
+    <p class="volleyball-section__closing-text">
+      {{ volleyballSection.closing.before
+      }}<span class="volleyball-section__closing-highlight">{{
+        volleyballSection.closing.highlight
+      }}</span
+      >{{ volleyballSection.closing.after }}
+    </p>
+  </blockquote>
+</section>

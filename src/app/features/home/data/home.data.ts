@@ -2,6 +2,7 @@ import type {
   ScreenMemory,
   SeriesSleepMoment,
 } from '../../../shared/models/screen-memory.model';
+import type { VolleyballMoment } from '../../../shared/models/volleyball-moment.model';
 import type { SeasonStat } from '../../../shared/models/season-stat.model';
 import type { SeasonTrip } from '../../../shared/models/season-trip.model';
 
@@ -180,3 +181,49 @@ export const SERIES_SLEEP_MOMENTS = [
     imageAlt: 'Daniel dormindo ao lado de Bia enquanto assistiam a série',
   },
 ] as const satisfies readonly SeriesSleepMoment[];
+
+export const VOLLEYBALL_SECTION = {
+  badge: 'VÔLEI DA TEMPORADA',
+  title: '6 dias de vôlei',
+  subtitle: 'Do sofá à arquibancada.',
+  intro:
+    'Foram 6 dias de vôlei, entre sofá, areia e arquibancada. No fim, o melhor time continuou sendo o nosso.',
+  closing: {
+    before:
+      'A gente viu jogo pela TV, viveu vôlei na praia e viajou para assistir de perto. Mas meu ponto favorito ainda é estar no ',
+    highlight: 'mesmo time',
+    after: ' que você.',
+  },
+} as const;
+
+export const VOLLEYBALL_MOMENTS: VolleyballMoment[] = [
+  {
+    amount: '1 dia',
+    title: 'Vôlei pela TV na casa da Bia',
+    description: 'O começo da nossa torcida dentro de casa.',
+    location: 'Casa da Bia',
+    type: 'home',
+    image: 'images/volleyball/volei-tv.jpg',
+    imageAlt: 'Vôlei sendo assistido pela TV na casa da Bia',
+  },
+  {
+    amount: '1 dia',
+    title: 'Vôlei de praia na Praia do Francês',
+    description: 'Nosso rally na areia.',
+    location: 'Praia do Francês',
+    type: 'beach',
+    image: 'images/volleyball/praia-do-frances.jpg',
+    imageAlt: 'Dia de vôlei de praia na Praia do Francês',
+  },
+  {
+    amount: '4 dias',
+    title: 'Vôlei em Brasília',
+    description:
+      'A viagem que transformou essa fase em uma verdadeira temporada.',
+    location: 'Brasília',
+    type: 'trip',
+    featured: true,
+    image: 'images/volleyball/brasilia-volei.jpg',
+    imageAlt: 'Viagem para Brasília para assistir jogos de vôlei',
+  },
+];
