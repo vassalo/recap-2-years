@@ -1,4 +1,5 @@
 import type { AwardsSectionData } from '../../../shared/models/season-award.model';
+import type { FinalLetterData } from '../../../shared/models/final-letter.model';
 import type { GameStat, GamingPhotoMemory } from '../../../shared/models/gaming.model';
 import type { MessagesSectionData } from '../../../shared/models/messages-section.model';
 import type {
@@ -392,4 +393,17 @@ export const AWARDS_SECTION: AwardsSectionData = {
   ],
   closing:
     'No fim, o troféu é só um símbolo. O prêmio de verdade foi viver tudo isso com você.',
+};
+
+export const FINAL_LETTER: FinalLetterData = {
+  badge: 'CARTA FINAL',
+  title: 'Bia,',
+  paragraphs: [
+    'Esse segundo ano teve viagens, filmes, série, vôlei, jogos, mensagens e muitos momentos que talvez pareçam pequenos por fora, mas que para mim viraram parte enorme da nossa história.',
+    'O troféu é só um símbolo. O prêmio de verdade foi viver essa temporada com você.',
+    'Obrigado por estar no meu time, por dividir o sofá, a praia, a arquibancada, o controle, a tela e o dia a dia comigo.',
+    'Eu escolheria tudo de novo. E, se você topar, quero começar a próxima temporada do seu lado.',
+  ],
+  signature: 'Com amor, Daniel',
+  footer: '2 anos no mesmo time.',
 };

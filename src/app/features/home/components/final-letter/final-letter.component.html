@@ -1,0 +1,26 @@
+<section
+  class="final-letter"
+  [attr.id]="sectionId()"
+  aria-labelledby="final-letter-title"
+>
+  <p class="final-letter__badge">{{ letter.badge }}</p>
+
+  <article class="final-letter__paper">
+    <h2 class="final-letter__title" id="final-letter-title">{{ letter.title }}</h2>
+
+    @for (paragraph of letter.paragraphs; track $index) {
+      <p class="final-letter__paragraph">{{ paragraph }}</p>
+    }
+
+    <div class="final-letter__signoff" aria-hidden="true"></div>
+
+    <p class="final-letter__signature">{{ letter.signature }}</p>
+
+    @if (letter.footer) {
+      <p class="final-letter__footer">
+        <span class="final-letter__footer-heart" aria-hidden="true">♥</span>
+        {{ letter.footer }}
+      </p>
+    }
+  </article>
+</section>
