@@ -1,4 +1,5 @@
 import type { GameStat, GamingPhotoMemory } from '../../../shared/models/gaming.model';
+import type { MessagesSectionData } from '../../../shared/models/messages-section.model';
 import type {
   ScreenMemory,
   SeriesSleepMoment,
@@ -298,3 +299,35 @@ export const GAMING_PHOTOS: GamingPhotoMemory[] = [
     cozy: true,
   },
 ];
+
+export const MESSAGES_SECTION: MessagesSectionData = {
+  badge: 'A MAIOR CONVERSA',
+  title: 'A maior conversa da temporada',
+  subtitle: 'Desde 13/06/2025, o nosso dia a dia também virou história.',
+  totalMessages: '291.157',
+  mainLabel: 'mensagens trocadas',
+  startDateLabel: 'desde 13/06/2025',
+  description:
+    'No meio de bom dia, boa noite, saudade, planos, figurinhas, conversas aleatórias e declarações escondidas no cotidiano, a gente foi escrevendo mais um ano da nossa história.',
+  miniStats: [
+    {
+      label: 'Bom dia e boa noite',
+      value: 'rotina',
+      description: 'pequenos lembretes de que a gente estava ali',
+    },
+    {
+      label: 'Planos e saudade',
+      value: 'presença',
+      description: 'mesmo quando cada um estava em um lugar',
+    },
+    {
+      label: 'Figurinhas e besteiras',
+      value: 'nosso jeito',
+      description: 'porque nem toda declaração precisa parecer séria',
+    },
+  ],
+  highlight:
+    'Quase 300 mil mensagens, mas ainda tem coisa que eu só consigo dizer olhando para você.',
+  closing:
+    'Porque amar também é isso: continuar escolhendo conversar, contar o dia, mandar besteira, perguntar se chegou bem e transformar o comum em presença.',
+};

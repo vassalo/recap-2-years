@@ -1,0 +1,52 @@
+<section
+  class="messages-section"
+  [attr.id]="sectionId()"
+  aria-labelledby="messages-section-title"
+>
+  <header class="messages-section__header">
+    <p class="messages-section__badge">{{ messages.badge }}</p>
+    <h2 class="messages-section__title" id="messages-section-title">
+      {{ messages.title }}
+    </h2>
+    <p class="messages-section__subtitle">{{ messages.subtitle }}</p>
+  </header>
+
+  <article class="messages-hero messages-section__anim" style="--msg-anim-delay: 0ms">
+    <div class="messages-hero__decor" aria-hidden="true">
+      <span class="messages-hero__bubble messages-hero__bubble--top"></span>
+      <span class="messages-hero__bubble messages-hero__bubble--bottom"></span>
+    </div>
+
+    <div class="messages-hero__content">
+      <p class="messages-hero__number">{{ messages.totalMessages }}</p>
+      <p class="messages-hero__label">{{ messages.mainLabel }}</p>
+      <p class="messages-hero__date">{{ messages.startDateLabel }}</p>
+    </div>
+  </article>
+
+  <p class="messages-section__description messages-section__anim" style="--msg-anim-delay: 100ms">
+    {{ messages.description }}
+  </p>
+
+  <div class="messages-section__mini-stats">
+    @for (stat of messages.miniStats; track stat.label; let i = $index) {
+      <article
+        class="message-mini-stat messages-section__anim"
+        [style.--msg-anim-delay]="(i + 2) * 90 + 'ms'"
+      >
+        <p class="message-mini-stat__label">{{ stat.label }}</p>
+        <p class="message-mini-stat__value">{{ stat.value }}</p>
+        <p class="message-mini-stat__description">{{ stat.description }}</p>
+      </article>
+    }
+  </div>
+
+  <blockquote class="messages-section__highlight messages-section__anim" style="--msg-anim-delay: 480ms">
+    <span class="messages-section__quote-mark" aria-hidden="true">“</span>
+    <p>{{ messages.highlight }}</p>
+  </blockquote>
+
+  <blockquote class="messages-section__closing messages-section__anim" style="--msg-anim-delay: 580ms">
+    <p class="messages-section__closing-text">{{ messages.closing }}</p>
+  </blockquote>
+</section>
