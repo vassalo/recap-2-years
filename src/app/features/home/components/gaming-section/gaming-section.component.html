@@ -1,0 +1,124 @@
+<section
+  class="gaming-section"
+  [attr.id]="sectionId()"
+  aria-labelledby="gaming-section-title"
+>
+  <header class="gaming-section__header">
+    <p class="gaming-section__badge">{{ gamingSection.badge }}</p>
+    <h2 class="gaming-section__title" id="gaming-section-title">
+      {{ gamingSection.title }}
+    </h2>
+    <p class="gaming-section__subtitle">{{ gamingSection.subtitle }}</p>
+    <p class="gaming-section__intro">{{ gamingSection.intro }}</p>
+  </header>
+
+  <article class="save-game-card gaming-section__anim" style="--gaming-anim-delay: 0ms">
+    <span class="save-game-card__seal">{{ gamingSection.saveGame.seal }}</span>
+
+    <div class="save-game-card__players">
+      <div class="save-game-card__player">
+        <span class="save-game-card__player-label">Player 1</span>
+        <span class="save-game-card__player-name">{{
+          gamingSection.saveGame.player1
+        }}</span>
+      </div>
+      <div class="save-game-card__player">
+        <span class="save-game-card__player-label">Player 2</span>
+        <span class="save-game-card__player-name">{{
+          gamingSection.saveGame.player2
+        }}</span>
+      </div>
+    </div>
+
+    <div class="save-game-card__stats">
+      <div class="save-game-card__stat save-game-card__stat--highlight">
+        <span class="save-game-card__stat-label">Tempo jogado</span>
+        <span class="save-game-card__stat-value">{{
+          gamingSection.saveGame.timePlayed
+        }}</span>
+      </div>
+      <div class="save-game-card__stat">
+        <span class="save-game-card__stat-label">Modo</span>
+        <span class="save-game-card__stat-value save-game-card__stat-value--text">{{
+          gamingSection.saveGame.mode
+        }}</span>
+      </div>
+      <div class="save-game-card__stat">
+        <span class="save-game-card__stat-label">Status</span>
+        <span class="save-game-card__stat-value save-game-card__stat-value--status">{{
+          gamingSection.saveGame.status
+        }}</span>
+      </div>
+    </div>
+  </article>
+
+  <div class="gaming-section__games">
+    @for (game of games; track game.title; let i = $index) {
+      <article
+        class="game-stat-card"
+        [class.game-stat-card--gold]="game.accent === 'gold'"
+        [class.game-stat-card--wine]="game.accent === 'wine'"
+        [class.game-stat-card--soft]="game.accent === 'soft' || !game.accent"
+        [style.--gaming-anim-delay]="(i + 1) * 80 + 'ms'"
+      >
+        <p class="game-stat-card__hours">{{ game.hours }}</p>
+        <h3 class="game-stat-card__title">{{ game.title }}</h3>
+        <p class="game-stat-card__description">{{ game.description }}</p>
+      </article>
+    }
+  </div>
+
+  <div class="gaming-section__photos">
+    <h3 class="gaming-section__photos-title">
+      {{ gamingSection.photoSectionTitle }}
+    </h3>
+
+    <div class="gaming-section__photos-grid">
+      @for (photo of photos; track photo.id; let j = $index) {
+        <article
+          class="gaming-photo-card"
+          [class.gaming-photo-card--cozy]="photo.cozy"
+          [style.--gaming-anim-delay]="(j + 6) * 80 + 'ms'"
+        >
+          @if (photo.seal) {
+            <span class="gaming-photo-card__seal">{{ photo.seal }}</span>
+          }
+
+          <div class="gaming-photo-card__media">
+            @if (!hasImageError(photo.id)) {
+              <img
+                class="gaming-photo-card__image"
+                [src]="photo.image"
+                [alt]="photo.imageAlt"
+                loading="lazy"
+                (error)="onImageError(photo.id)"
+              />
+            }
+
+            <div
+              class="gaming-photo-card__fallback"
+              [class.gaming-photo-card__fallback--visible]="
+                hasImageError(photo.id)
+              "
+              aria-hidden="true"
+            >
+              <span class="gaming-photo-card__fallback-title">{{
+                photo.title
+              }}</span>
+              <span class="gaming-photo-card__fallback-detail">Foto da temporada</span>
+            </div>
+          </div>
+
+          <div class="gaming-photo-card__body">
+            <h4 class="gaming-photo-card__title">{{ photo.title }}</h4>
+            <p class="gaming-photo-card__description">{{ photo.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+
+  <blockquote class="gaming-section__closing gaming-section__anim" style="--gaming-anim-delay: 720ms">
+    <p class="gaming-section__closing-text">{{ gamingSection.closing }}</p>
+  </blockquote>
+</section>

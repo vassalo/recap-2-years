@@ -1,3 +1,4 @@
+import type { GameStat, GamingPhotoMemory } from '../../../shared/models/gaming.model';
 import type {
   ScreenMemory,
   SeriesSleepMoment,
@@ -225,5 +226,75 @@ export const VOLLEYBALL_MOMENTS: VolleyballMoment[] = [
     featured: true,
     image: 'images/volleyball/brasilia-volei.jpg',
     imageAlt: 'Viagem para Brasília para assistir jogos de vôlei',
+  },
+];
+
+export const GAMING_SECTION = {
+  badge: 'MODO COOP',
+  title: '20 horas no PlayStation 5',
+  subtitle: 'A cooperação fora das quadras.',
+  intro:
+    'Foram 20 horas jogando juntos — às vezes cooperando, às vezes competindo, às vezes só rindo do caos. Mas, no fim, todo jogo ficou melhor porque era com você.',
+  saveGame: {
+    seal: 'SAVE DA TEMPORADA',
+    player1: 'Daniel',
+    player2: 'Bia',
+    timePlayed: '20h',
+    mode: 'Cooperação, risadas e um pouco de competitividade',
+    status: 'próxima fase desbloqueada',
+  },
+  photoSectionTitle: 'Memórias em modo coop',
+  closing:
+    'Se a vida fosse um jogo, eu escolheria continuar no modo cooperativo com você.',
+} as const;
+
+export const GAMING_STATS: GameStat[] = [
+  {
+    hours: '10h',
+    title: 'It Takes Two',
+    description:
+      'O jogo mais a nossa cara: cada um com seu jeito, mas os dois precisando se entender para passar de fase.',
+    accent: 'gold',
+  },
+  {
+    hours: '5h',
+    title: 'eFootball',
+    description:
+      'Rivalidade saudável, controle na mão e risadas no meio da disputa.',
+    accent: 'soft',
+  },
+  {
+    hours: '3h',
+    title: 'Spider-Man',
+    description: 'Teia, cidade e comentários aleatórios no sofá.',
+    accent: 'soft',
+  },
+  {
+    hours: '2h',
+    title: 'Sackboy',
+    description: 'Caos bonitinho, fases coloridas e mais um motivo para rir junto.',
+    accent: 'wine',
+  },
+];
+
+export const GAMING_PHOTOS: GamingPhotoMemory[] = [
+  {
+    id: 'game-casa-daniel',
+    title: 'Jogando videogame na minha casa',
+    description:
+      'Uma daquelas fases em que a diversão era tão boa quanto ter você do meu lado.',
+    image: 'images/gaming/game-na-minha-casa.jpg',
+    imageAlt: 'Daniel e Bia jogando videogame juntos na casa de Daniel',
+  },
+  {
+    id: 'madrugada-bia',
+    title: 'De madrugada na casa da Bia',
+    description:
+      'Eu jogando, você agarradinha no meu braço e o sono vencendo devagar — um dos meus modos favoritos de estar com você.',
+    image: 'images/gaming/madrugada-na-casa-da-bia.jpg',
+    imageAlt:
+      'Daniel jogando videogame enquanto Bia cochila agarrada em seu braço na casa dela',
+    seal: 'coop + cochilo',
+    cozy: true,
   },
 ];
