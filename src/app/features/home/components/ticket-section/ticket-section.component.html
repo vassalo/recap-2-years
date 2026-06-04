@@ -1,0 +1,68 @@
+<section
+  class="ticket-section"
+  [attr.id]="sectionId()"
+  aria-labelledby="ticket-section-title"
+>
+  <header class="ticket-section__header">
+    <p class="ticket-section__badge">{{ ticket.badge }}</p>
+    <h2 class="ticket-section__title" id="ticket-section-title">
+      {{ ticket.title }}
+    </h2>
+    <p class="ticket-section__subtitle">{{ ticket.subtitle }}</p>
+    <p class="ticket-section__intro">{{ ticket.intro }}</p>
+  </header>
+
+  <article class="season-ticket">
+    <div class="season-ticket__notch season-ticket__notch--left" aria-hidden="true"></div>
+    <div class="season-ticket__notch season-ticket__notch--right" aria-hidden="true"></div>
+
+    <div class="season-ticket__top">
+      <p class="season-ticket__header">{{ ticket.ticketHeader }}</p>
+      <h3 class="season-ticket__title">{{ ticket.ticketTitle }}</h3>
+      <p class="season-ticket__code">{{ ticket.code }}</p>
+    </div>
+
+    <div class="season-ticket__divider" aria-hidden="true"></div>
+
+    <dl class="season-ticket__fields">
+      @for (field of ticket.fields; track field.label) {
+        <div
+          class="season-ticket__field"
+          [class.season-ticket__field--highlight]="field.highlight"
+        >
+          <dt class="season-ticket__field-label">{{ field.label }}</dt>
+          <dd class="season-ticket__field-value">{{ field.value }}</dd>
+        </div>
+      }
+    </dl>
+
+    <div class="season-ticket__divider season-ticket__divider--bottom" aria-hidden="true"></div>
+
+    <p class="season-ticket__footer">{{ ticket.ticketFooter }}</p>
+  </article>
+
+  <p class="ticket-section__closing">{{ ticket.closing }}</p>
+
+  <div class="ticket-section__action">
+    <app-button
+      [label]="buttonLabel()"
+      [disabled]="unlocked()"
+      (clicked)="unlockSeason()"
+    />
+  </div>
+
+  @if (unlocked()) {
+    <p
+      class="ticket-section__unlocked"
+      role="status"
+      aria-live="polite"
+    >
+      <span class="ticket-section__unlocked-icon" aria-hidden="true">✦</span>
+      {{ ticket.unlockedMessage }}
+    </p>
+  }
+
+  <footer class="ticket-section__site-footer">
+    <p>{{ ticket.siteFooter }}</p>
+  </footer>
+</section>

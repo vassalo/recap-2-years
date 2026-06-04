@@ -1,5 +1,6 @@
 import type { AwardsSectionData } from '../../../shared/models/season-award.model';
 import type { FinalLetterData } from '../../../shared/models/final-letter.model';
+import type { TicketSectionData } from '../../../shared/models/ticket-section.model';
 import type { GameStat, GamingPhotoMemory } from '../../../shared/models/gaming.model';
 import type { MessagesSectionData } from '../../../shared/models/messages-section.model';
 import type {
@@ -406,4 +407,31 @@ export const FINAL_LETTER: FinalLetterData = {
   ],
   signature: 'Com amor, Daniel',
   footer: '2 anos no mesmo time.',
+};
+
+export const TICKET_SECTION: TicketSectionData = {
+  badge: 'PRÓXIMA TEMPORADA',
+  title: 'Ingresso para o 3º ano',
+  subtitle: 'Temporada 3 desbloqueada.',
+  intro: 'Depois de tudo que a gente viveu nessa temporada, esse é o convite para o próximo set.',
+  ticketHeader: 'INGRESSO OFICIAL',
+  ticketTitle: 'Temporada 3 — Daniel & Bia',
+  code: 'DB-03-2026',
+  fields: [
+    { label: 'Evento', value: 'nosso terceiro ano' },
+    { label: 'Assento', value: 'ao seu lado', highlight: true },
+    { label: 'Modalidade', value: 'dupla da vida real' },
+    { label: 'Status', value: 'check-in confirmado', highlight: true },
+    {
+      label: 'Validade',
+      value: 'enquanto você quiser continuar jogando comigo',
+    },
+  ],
+  ticketFooter: '2 corações · 1 time · próxima temporada',
+  closing: 'Eu não quero fechar o jogo. Quero começar o próximo set com você.',
+  buttonLabel: 'Começar próxima temporada',
+  unlockedButtonLabel: 'Temporada desbloqueada',
+  unlockedMessage: 'Temporada 3 desbloqueada. Player 1 e Player 2 seguem no mesmo time.',
+  siteFooter:
+    'Feito por Daniel, para Bia, com todas as estatísticas que não cabem em uma planilha.',
 };
