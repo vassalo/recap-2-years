@@ -1,3 +1,4 @@
+import type { AwardsSectionData } from '../../../shared/models/season-award.model';
 import type { GameStat, GamingPhotoMemory } from '../../../shared/models/gaming.model';
 import type { MessagesSectionData } from '../../../shared/models/messages-section.model';
 import type {
@@ -330,4 +331,65 @@ export const MESSAGES_SECTION: MessagesSectionData = {
     'Quase 300 mil mensagens, mas ainda tem coisa que eu só consigo dizer olhando para você.',
   closing:
     'Porque amar também é isso: continuar escolhendo conversar, contar o dia, mandar besteira, perguntar se chegou bem e transformar o comum em presença.',
+};
+
+export const AWARDS_SECTION: AwardsSectionData = {
+  badge: 'PREMIAÇÃO',
+  title: 'Prêmios da Temporada',
+  subtitle: 'Alguns troféus simbólicos para tudo que fez esse ano ser nosso.',
+  intro:
+    'Se essa temporada tivesse uma cerimônia de premiação, esses seriam alguns dos prêmios que eu entregaria para os nossos melhores momentos.',
+  awards: [
+    {
+      id: 'mvp',
+      category: 'MVP da temporada',
+      winner: 'Bia',
+      description:
+        'Porque nenhum highlight desse ano teria o mesmo brilho sem você.',
+      image: 'images/awards/mvp-da-temporada.jpg',
+      imageAlt: 'Bia em um momento especial da temporada',
+      accent: 'gold',
+      featured: 'mvp',
+    },
+    {
+      id: 'dupla',
+      category: 'Melhor dupla',
+      winner: 'Daniel & Bia',
+      description: 'Dois corações, um time.',
+      image: 'images/awards/melhor-dupla.jpg',
+      imageAlt: 'Daniel e Bia juntos representando a melhor dupla',
+      accent: 'wine',
+    },
+    {
+      id: 'torcida',
+      category: 'Melhor rolê',
+      winner: 'Nós dois',
+      description: 'No sofá ou na poltrona.',
+      image: 'images/awards/melhor-torcida.jpg',
+      imageAlt: 'Daniel e Bia torcendo ou assistindo algo juntos',
+      accent: 'soft',
+    },
+    {
+      id: 'coop',
+      category: 'Melhor modo de jogo',
+      winner: 'Coop',
+      description: 'Porque com você eu sempre prefiro jogar junto.',
+      image: 'images/awards/melhor-modo-de-jogo.jpg',
+      imageAlt: 'Daniel e Bia em um momento de videogame juntos',
+      accent: 'wine',
+    },
+    {
+      id: 'campeonato',
+      category: 'Melhor campeonato',
+      winner: 'Nosso segundo ano',
+      description:
+        'Uma temporada cheia de pontos, rallies, fases, cenas e mensagens.',
+      image: 'images/awards/melhor-campeonato.jpg',
+      imageAlt: 'Memória especial do segundo ano de namoro de Daniel e Bia',
+      accent: 'gold',
+      featured: 'finale',
+    },
+  ],
+  closing:
+    'No fim, o troféu é só um símbolo. O prêmio de verdade foi viver tudo isso com você.',
 };

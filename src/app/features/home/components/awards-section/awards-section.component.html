@@ -1,0 +1,67 @@
+<section
+  class="awards-section"
+  [attr.id]="sectionId()"
+  aria-labelledby="awards-section-title"
+>
+  <header class="awards-section__header">
+    <p class="awards-section__badge">{{ awardsSection.badge }}</p>
+    <h2 class="awards-section__title" id="awards-section-title">
+      {{ awardsSection.title }}
+    </h2>
+    <p class="awards-section__subtitle">{{ awardsSection.subtitle }}</p>
+    <p class="awards-section__intro">{{ awardsSection.intro }}</p>
+  </header>
+
+  <div class="awards-section__grid">
+    @for (award of awardsSection.awards; track award.id; let i = $index) {
+      <article
+        class="award-card"
+        [class.award-card--gold]="award.accent === 'gold'"
+        [class.award-card--wine]="award.accent === 'wine'"
+        [class.award-card--soft]="award.accent === 'soft' || !award.accent"
+        [class.award-card--mvp]="award.featured === 'mvp'"
+        [class.award-card--finale]="award.featured === 'finale'"
+        [style.--award-anim-delay]="i * 80 + 'ms'"
+      >
+        @if (award.featured === 'mvp') {
+          <span class="award-card__seal">prêmio especial</span>
+        }
+
+        <figure class="award-card__figure">
+          <div class="award-card__frame">
+            @if (!hasImageError(award.id)) {
+              <img
+                class="award-card__image"
+                [src]="award.image"
+                [alt]="award.imageAlt"
+                loading="lazy"
+                (error)="onImageError(award.id)"
+              />
+            }
+
+            <div
+              class="award-card__fallback"
+              [class.award-card__fallback--visible]="hasImageError(award.id)"
+              aria-hidden="true"
+            >
+              <span class="award-card__fallback-category">{{
+                award.category
+              }}</span>
+              <span class="award-card__fallback-detail">Foto da temporada</span>
+            </div>
+          </div>
+        </figure>
+
+        <div class="award-card__body">
+          <p class="award-card__category">{{ award.category }}</p>
+          <h3 class="award-card__winner">{{ award.winner }}</h3>
+          <p class="award-card__description">{{ award.description }}</p>
+        </div>
+      </article>
+    }
+  </div>
+
+  <blockquote class="awards-section__closing">
+    <p class="awards-section__closing-text">{{ awardsSection.closing }}</p>
+  </blockquote>
+</section>

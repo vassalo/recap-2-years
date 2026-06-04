@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AppButtonComponent } from '../../shared/components/app-button/app-button.component';
+import { AwardsSectionComponent } from './components/awards-section/awards-section.component';
 import { GamingSectionComponent } from './components/gaming-section/gaming-section.component';
 import { MessagesSectionComponent } from './components/messages-section/messages-section.component';
 import { ScreenSectionComponent } from './components/screen-section/screen-section.component';
@@ -19,6 +20,7 @@ import { HOME_DATA } from './data/home.data';
     VolleyballSectionComponent,
     GamingSectionComponent,
     MessagesSectionComponent,
+    AwardsSectionComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
