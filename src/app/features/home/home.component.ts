@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 
 import { AppButtonComponent } from '../../shared/components/app-button/app-button.component';
+import { ScreenSectionComponent } from './components/screen-section/screen-section.component';
 import { SeasonScoreboardComponent } from './components/season-scoreboard/season-scoreboard.component';
 import { TravelSectionComponent } from './components/travel-section/travel-section.component';
 import { HOME_DATA } from './data/home.data';
 
 @Component({
   selector: 'app-home',
-  imports: [AppButtonComponent, SeasonScoreboardComponent, TravelSectionComponent],
+  imports: [
+    AppButtonComponent,
+    SeasonScoreboardComponent,
+    TravelSectionComponent,
+    ScreenSectionComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

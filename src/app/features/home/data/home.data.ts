@@ -1,3 +1,7 @@
+import type {
+  ScreenMemory,
+  SeriesSleepMoment,
+} from '../../../shared/models/screen-memory.model';
 import type { SeasonStat } from '../../../shared/models/season-stat.model';
 import type { SeasonTrip } from '../../../shared/models/season-trip.model';
 
@@ -117,3 +121,62 @@ export const SEASON_TRIPS: SeasonTrip[] = [
     tag: 'vôlei',
   },
 ];
+
+export const SCREEN_SECTION = {
+  badge: 'TELA COMPARTILHADA',
+  title: '30 filmes e 13 episódios',
+  subtitle: 'Histórias que a gente assistiu lado a lado.',
+  intro:
+    'No fim, não era só sobre o que estava passando na tela. Era sobre ter você ali comigo.',
+  closing:
+    'Entre filmes, episódios e comentários no meio da cena, a tela virou só mais um jeito de dividir tempo com você.',
+} as const;
+
+export const SCREEN_MEMORIES: ScreenMemory[] = [
+  {
+    type: 'movies',
+    value: '30',
+    title: 'filmes',
+    description:
+      '30 filmes assistidos juntos. Alguns bons, alguns duvidosos, alguns inesquecíveis — mas todos viraram parte da nossa coleção de momentos.',
+    highlight:
+      '30 filmes. 30 desculpas para ficar mais um pouco do seu lado.',
+    image: 'images/screenshots/letterboxd.png',
+    imageAlt: 'Print do Letterboxd com os filmes assistidos juntos em 2026',
+  },
+  {
+    type: 'series',
+    value: '13',
+    title: 'episódios',
+    subtitle: 'Uma Mente Excepcional',
+    description:
+      '13 episódios acompanhando uma mente brilhante, enquanto uma das melhores partes era simplesmente assistir tudo isso com você. E, em alguns desses momentos, a gente estava tão relaxado e em paz que acabava até pegando no sono no meio dos episódios.',
+    highlight:
+      'Uma temporada acompanhada em capítulos, pausas, comentários, silêncio confortável e cochilos compartilhados.',
+    emotionalNote:
+      'Às vezes, a melhor parte nem era o episódio — era dormir tranquilo do seu lado.',
+  },
+];
+
+export const SERIES_SLEEP_SUBSECTION = {
+  title: 'Nosso lado mais confortável',
+} as const;
+
+export const SERIES_SLEEP_MOMENTS = [
+  {
+    id: 'sleep-bia',
+    title: 'Você dormindo do meu lado',
+    description:
+      'Em alguns episódios, o conforto era tanto que o sono ganhava da trama.',
+    image: 'images/screenshots/bia-dormindo.jpg',
+    imageAlt: 'Bia dormindo ao lado de Daniel enquanto assistiam a série',
+  },
+  {
+    id: 'sleep-daniel',
+    title: 'Eu dormindo do seu lado',
+    description:
+      'E às vezes a série virava só trilha sonora para mais um momento de paz com você.',
+    image: 'images/screenshots/daniel-dormindo.jpg',
+    imageAlt: 'Daniel dormindo ao lado de Bia enquanto assistiam a série',
+  },
+] as const satisfies readonly SeriesSleepMoment[];
